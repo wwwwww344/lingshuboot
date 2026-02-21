@@ -162,18 +162,9 @@
 
 如果您有任何问题或建议，欢迎联系我们：
 
-- **项目地址**：https://github.com/lingos-ai/lingos
-- **邮箱**：contact@lingos.ai
-- **社区论坛**：https://forum.lingos.ai
+- **项目地址**：https://github.com/wwwwww344/lingshuboot
+- **邮箱**：1718039019@qq.com
 
-## 鸣谢
-
-感谢以下项目和工具对灵枢的启发和支持：
-
-- [Python](https://www.python.org/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [pip](https://pip.pypa.io/)
-- [venv](https://docs.python.org/3/library/venv.html)
 
 ## 版本历史
 
