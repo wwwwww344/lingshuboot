@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/badge/命令系统-3776AB?style=for-the-badge&logo=linux&logoColor=white" alt="命令系统">
   </a>
   <a href="#使用文档">
-    <img src="https://img.shields.io/badge/使用文档-42B883?style=for-the-badge&logo=github&logoColor=white" alt="使用文档">
+    <img src="https://github.com/wwwwww344/lingshuboot/blob/main/USER_GUIDE.md" alt="使用文档">
   </a>
 </div>
 
