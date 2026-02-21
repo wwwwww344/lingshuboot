@@ -1,0 +1,72 @@
+{
+  "name": "lingshuOS",
+  "version": "1.0.0",
+  "description": "Windows开发版操作系统 - 专注于AI开发",
+  "author": "lingshuOS Team",
+  "default_python_version": "3.10.0",
+  "default_mirror": "https://mirrors.tuna.tsinghua.edu.cn",
+  "current_env": "myenv",
+  "environments": {
+    "t": {
+      "path": "H:\\灵枢OS\\lingos\\pyenv\\t",
+      "python_version": "3.7.9"
+    },
+    "test_env_12345": {
+      "path": "h:\\灵枢OS\\lingos\\pyenv\\test_env_12345",
+      "python_version": "3.9.0"
+    },
+    "test_env_more_debug": {
+      "path": "h:\\灵枢OS\\lingos\\pyenv\\test_env_more_debug",
+      "python_version": "3.9.0"
+    },
+    "test_env_download": {
+      "path": "h:\\灵枢OS\\lingos\\pyenv\\test_env_download",
+      "python_version": "3.9.0"
+    },
+    "myenv": {
+      "path": "H:\\灵枢OS\\lingos\\pyenv\\myenv",
+      "python_version": "3.9.0"
+    },
+    "test_env_local_download": {
+      "path": "h:\\灵枢OS\\lingos\\pyenv\\test_env_local_download",
+      "python_version": "3.9.0"
+    },
+    "myenv2": {
+      "path": "H:\\灵枢OS\\lingos\\pyenv\\myenv2",
+      "python_version": "3.9.0"
+    }
+  },
+  "system": {
+    "optimization": {
+      "enabled": true,
+      "clean_temp_files": true,
+      "clean_cache": true,
+      "optimize_memory": true
+    },
+    "security": {
+      "enabled": true,
+      "auto_update": false
+    }
+  },
+  "ai": {
+    "enabled": true,
+    "tools": [
+      "tensorflow",
+      "pytorch",
+      "keras",
+      "scikit-learn",
+      "numpy",
+      "pandas"
+    ],
+    "models": []
+  },
+  "development": {
+    "tools": [
+      "vscode",
+      "git",
+      "nodejs",
+      "docker"
+    ],
+    "debug": false
+  }
+}
