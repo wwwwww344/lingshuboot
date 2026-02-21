@@ -1,42 +1,42 @@
 @echo off
 
-:: lingshuOS Installer
+:: Lingos AI Operation Script Installer
 :: Windows Version
 
-:: Get current directory and set lingshuOS paths
+:: Get current directory and set Lingos paths
 set "CURRENT_DIR=%cd%"
 echo Current directory: %CURRENT_DIR%
 
-:: Set lingshuOS root directory (get parent directory of this script)
-set "LINGSHUOS_ROOT=%~dp0"
-echo lingshuOS root directory: %LINGSHUOS_ROOT%
+:: Set Lingos root directory (get parent directory of this script)
+set "LINGOS_ROOT=%~dp0"
+echo Lingos root directory: %LINGOS_ROOT%
 
-set "LINGSHUOS_BIN=%LINGSHUOS_ROOT%bin"
-echo lingshuOS bin directory: %LINGSHUOS_BIN%
+set "LINGOS_BIN=%LINGOS_ROOT%bin"
+echo Lingos bin directory: %LINGOS_BIN%
 
-echo lingshuOS Windows开发版操作系统安装
+echo Lingos AI Operation Script Installation
 
-echo 1. 设置环境变量...
+echo 1. Setting environment variables...
 
 :: Check if running as administrator
 net session >nul 2>&1
 if %errorLevel% neq 0 (
-    echo 错误: 需要以管理员身份运行
-    echo 请右键点击此脚本并选择"以管理员身份运行"
+    echo Error: Need to run as administrator
+    echo Please right-click this script and select "Run as administrator"
     pause
     exit /b 1
 )
 
-:: Add lingshuOS to system PATH
+:: Add Lingos to system PATH
 :: Get current PATH
-echo 获取当前PATH...
+echo Getting current PATH...
 for /f "skip=2 tokens=3*" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v PATH') do set "CURRENT_PATH=%%a%%b"
-echo 当前PATH: %CURRENT_PATH%
+echo Current PATH: %CURRENT_PATH%
 
-:: Remove existing lingshuOS paths from PATH
+:: Remove existing Lingos paths from PATH
 set "NEW_PATH=%CURRENT_PATH%"
 
-:: Remove all lingshuOS-related paths from PATH using a different approach
+:: Remove all Lingos-related paths from PATH using a different approach
 :: First, split PATH into individual directories and process each one
 set "TEMP_PATH=%NEW_PATH%"
 set "NEW_PATH="
@@ -48,10 +48,10 @@ for /f "tokens=1* delims=;" %%a in ("%TEMP_PATH%") do (
     set "TEMP_PATH=%%b"
 )
 
-:: Check if the directory contains "lingshuos" or "lingos"
-echo %DIR% | findstr /i "lingshuos lingos" >nul
+:: Check if the directory contains "lingos"
+echo %DIR% | findstr /i "lingos" >nul
 if errorLevel 1 (
-    :: If it doesn't contain "lingshuos" or "lingos", add it to NEW_PATH
+    :: If it doesn't contain "lingos", add it to NEW_PATH
     if defined NEW_PATH (
         set "NEW_PATH=%NEW_PATH%;%DIR%"
     ) else (
@@ -65,56 +65,56 @@ if defined TEMP_PATH goto process_path
 :: Handle case where NEW_PATH is empty
 if not defined NEW_PATH set "NEW_PATH=%CURRENT_PATH%"
 
-echo 新PATH (移除现有lingshuOS路径): %NEW_PATH%
+echo New PATH (without existing Lingos paths): %NEW_PATH%
 
-echo 添加 %LINGSHUOS_BIN% 到系统PATH...
-setx PATH "%LINGSHUOS_BIN%;%NEW_PATH%" /M
+echo Adding %LINGOS_BIN% to system PATH...
+setx PATH "%LINGOS_BIN%;%NEW_PATH%" /M
 if %errorLevel% equ 0 (
-    echo 成功: 将lingshuOS添加到系统PATH
+    echo Success: Added Lingos to system PATH
 ) else (
-    echo 警告: 无法添加PATH，可能需要手动配置
+    echo Warning: Failed to add PATH, may need manual configuration
 )
 
-echo 2. 创建快捷方式...
+echo 2. Creating shortcut...
 
 :: Create desktop shortcut
 set "DESKTOP=%USERPROFILE%\Desktop"
-set "SHORTCUT=%DESKTOP%\lingshuOS.lnk"
-echo 创建快捷方式: %SHORTCUT%
+set "SHORTCUT=%DESKTOP%\Lingos.lnk"
+echo Creating shortcut at: %SHORTCUT%
 
 if exist "%SHORTCUT%" (
-    echo 删除现有快捷方式...
+    echo Deleting existing shortcut...
     del "%SHORTCUT%"
 )
 
 :: Create shortcut using PowerShell
-echo 创建新快捷方式...
-powershell -Command "$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); $Shortcut.TargetPath = '%LINGSHUOS_BIN%\lingshuos.bat'; $Shortcut.WorkingDirectory = '%LINGSHUOS_ROOT%'; $Shortcut.Save()"
+echo Creating new shortcut...
+powershell -Command "$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); $Shortcut.TargetPath = '%LINGOS_BIN%\lingos.bat'; $Shortcut.WorkingDirectory = '%LINGOS_ROOT%'; $Shortcut.Save()"
 
 if %errorLevel% equ 0 (
-    echo 成功: 创建桌面快捷方式
+    echo Success: Created desktop shortcut
 ) else (
-    echo 警告: 无法创建快捷方式
+    echo Warning: Failed to create shortcut
 )
 
-echo 3. 验证安装...
+echo 3. Verifying installation...
 
 :: Verify installation
-echo 验证安装...
-%LINGSHUOS_BIN%\lingshuos.bat version
+echo Verifying installation...
+%LINGOS_BIN%\lingos.bat version
 if %errorLevel% equ 0 (
-    echo 成功: lingshuOS安装验证通过
+    echo Success: Lingos installation verified
 ) else (
-    echo 警告: lingshuOS安装验证失败
+    echo Warning: Lingos installation verification failed
 )
 
 echo.
-echo lingshuOS Windows开发版操作系统安装完成!
+echo Lingos AI Operation Script Installation Complete!
 echo.
-echo 使用方法:
-echo 1. 在CMD或PowerShell中直接运行: lingshuos
-echo 2. 双击桌面快捷方式启动
-echo 3. 运行 "lingshuos help" 查看命令帮助
+echo Usage:
+echo 1. Run directly in CMD or PowerShell: lingos
+echo 2. Double-click desktop shortcut to launch
+echo 3. Run "lingos help" to view command help
 
 echo.
 pause
