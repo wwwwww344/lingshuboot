@@ -1,7 +1,6 @@
 # 灵枢AI专用操作脚本
 
 <div align="center">
-  <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20clean%20logo%20for%20Lingos%20AI%20tool%20with%20blue%20and%20green%20colors%20representing%20artificial%20intelligence%20and%20technology&image_size=square_hd" alt="Lingos Logo" width="200" height="200">
   <h2>专注于人工智能计算任务处理的专用操作脚本</h2>
   <p>⚡ 轻量化 • 📦 便携性 • 🎯 专注AI • 🖥️ 跨平台</p>
   <br>
